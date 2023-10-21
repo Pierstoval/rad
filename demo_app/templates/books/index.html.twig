@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BooksController!{% endblock %}
+
+{% block body %}
+    <h1>List of books:</h1>
+
+    <ul>
+    {% for book in entity('Book').findAll() %}
+        <li>{{ book.title }}</li>
+    {% else %}
+        <li>No book here!</li>
+    {% endfor %}
+    </ul>
+
+    <h2>Code used to generate this list:</h2>
+    {% verbatim %}
+<pre>&lt;ul&gt;
+    {% for book in entity(&apos;Book&apos;).findAll() %}
+        &lt;li&gt;{{ book.title }}&lt;/li&gt;
+    {% else %}
+        &lt;li&gt;No book here!&lt;/li&gt;
+    {% endfor %}
+&lt;/ul&gt;</pre>
+    {% endverbatim %}
+{% endblock %}
